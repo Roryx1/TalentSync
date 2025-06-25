@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TalentSync - Carga de Certificado</title>
+  <style>
+    body {
+      background: #0a1733;
+      color: #ffffff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 80px auto;
+      background: rgba(10, 20, 40, 0.93);
+      border-radius: 18px;
+      box-shadow: 0 0 24px #3dcaff55;
+      padding: 2.5rem 2rem;
+    }
+
+    h1 {
+      color: #aeeaff;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    label {
+      display: block;
+      margin: 1.2rem 0 0.5rem 0;
+      color: #aeeaff;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 1rem;
+      background: #142544;
+      color: #ffffff;
+    }
+
+    .btn {
+      background: #aeeaff;
+      color: #0a1733;
+      font-weight: bold;
+      padding: 0.8rem 2rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #d4f1ff;
+    }
+
+    .success {
+      margin-top: 2rem;
+      color: #a0ffb0;
+      background: #153030;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .animation {
+      animation: pop 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+  <script>
+    function mostrarExito() {
+      document.getElementById('form-cert').style.display = 'none';
+      document.getElementById('exito').style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <div class="container animation">
+    <h1>Subir Certificado de Formación</h1>
+    <form id="form-cert" onsubmit="mostrarExito(); return false;">
+      <label for="nombre">Nombre del curso/certificación</label>
+      <input type="text" id="nombre" required placeholder="Ej: Gestión Ágil de Proyectos" />
+
+      <label for="tipo">Tipo</label>
+      <select id="tipo" required>
+        <option value="">Seleccionar</option>
+        <option>Curso</option>
+        <option>Certificación</option>
+        <option>Seminario</option>
+      </select>
+
+      <label for="fecha">Fecha de obtención</label>
+      <input type="date" id="fecha" required />
+
+      <label for="archivo">Adjuntar archivo</label>
+      <input type="file" id="archivo" accept="application/pdf,image/*" required />
+
+      <button class="btn" type="submit">Cargar Certificado</button>
+    </form>
+    <div id="exito" class="success" style="display:none;">
+      <strong>¡Certificado cargado exitosamente!</strong><br>
+      <span>Ahora tu formación está sincronizada y visible en tu perfil.</span>
+    </div>
+  </div>
+</body>
+</html>
